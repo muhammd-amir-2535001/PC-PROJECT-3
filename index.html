@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        html {
+            box-sizing: border-box;
+            background: #ffc600;
+            font-family: 'helvetica meue';
+            font-size: 20px;
+            font-weight: 200;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        *,
+        *::before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        .panels {
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .panel {
+            background: #600f9c;
+            box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0, 1);
+            color: white;
+            text-align: center;
+            align-items: center;
+            /* safarl transitiorend event.propertyName ===flex */
+            /* chrome + FF transitionerd event,propertyName ===flex grow */
+            transition:
+            font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+            flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+            background 0.2s;
+            font-size: 20px;
+            background-size: cover;
+            background-position: center;
+            /* border: 1px solid red; */
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel1 {
+            background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-aew-013_1_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=2724bd9481a065ee24e7e7eaaabf1c55);
+        }
+
+        .panel2 {
+            background-image: url(https://img.freepik.com/free-photo/digital-painting-mountain-with-colorful-tree-foreground_1340-25699.jpg?t=st=1690194729~exp=1690198329~hmac=d25daf0afdc8310050babd4a90bec20bfdf7311b48548ae3a6e7da566e91cf43&w=900);
+        }
+
+        .panel3 {
+            background-image: url(https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=900&t=st=1690194769~exp=1690195369~hmac=33e5e9e599906a9e6adb280ebc2ea10818d3119bf6b3c45d28ffa17c1d98d1ad);
+        }
+
+        .panel4 {
+            background-image: url(https://img.freepik.com/free-photo/urban-landscape-people-japan_23-2148889524.jpg?w=900&t=st=1690194793~exp=1690195393~hmac=8c784d44573042ab180e7a3334d3eec22e29e2e681619baa2b5860a39794706e);
+        }
+
+        .panel5 {
+            background-image: url(https://img.freepik.com/premium-photo/traditional-japanese-style-watercolor-oriental-pattern-mount-fuji-suitable_76964-2171.jpg?w=900);
+        }
+
+        /* flex children */
+        .panel>* {
+            margin: 0;
+            width: 100%;
+            transition: transform 0.5s;
+            border: 1px solid red;
+            flex: 1 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* .panel>* :first-child {
+            transform :translateV(-100%);
+        }
+
+        .panel.open-active>*:first-child {
+            transform: translateY(a);
+        } */
+
+        /* .panel>*:last-child {
+            transform: translateY(100%);
+        } */
+
+        /* .panel.open-active>*:last-child {
+            transform: translateY(0);
+        } */
+
+        .panel p {
+            text-transform: uppercase;
+            font-family: 'Amatic SC', cursive;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0.45);
+            font-size: 2em;
+        }
+
+        .panel p:nth-child(2) {
+            font-size: 4em;
+        }
+
+        .panel.open {
+            flex: 5;
+            font-size: 40px;
+        }
+
+        .cta {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+    <div class="panels">
+        <div class="panel panel1">
+            <p>Hey</p>
+            <p>let's</p>
+            <p>Dance</p>
+        </div>
+        <div class="panel panel2">
+            <p>Give</p>
+            <p>Take</p>
+            <p>Receive</p>
+        </div>
+        <div class="panel panel3">
+            <p>Exprience</p>
+            <p>It</p>
+            <p>Today</p>
+        </div>
+        <div class="panel panel4">
+            <p>Give</p>
+            <p>All</p>
+            <p>you</p>
+        </div>
+        <div class="panel panel5">
+            <p>life</p>
+            <p>in</p>
+            <p>Notion</p>
+        </div>
+    </div>
+<script>
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpem(){
+        console.log('Hello');
+        this.classList.toggle('open');
+    }
+    function toggleActive(a){
+        console.log("hello")
+        // console.log(a.propertyName);
+        // if(a.propertyName.includes('flex')){
+        //     this.classList.toggle('open-active');
+        // }
+    }
+    panels.forEach(panel => panel.addEventListener('click',toggleOpem));
+    panels.forEach(panel => panel.addEventListener,('transitionend',
+    toggleActive));
+</script>
+</body>
+
+</html>
